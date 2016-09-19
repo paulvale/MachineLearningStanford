@@ -30,11 +30,6 @@ for i = 1:K,
     Ci = length(matIndex);
     centroids(i,:) = sum(X(matIndex,:),1)/Ci;
 end;
-
-
-
-
-
 % =============================================================
 
 
