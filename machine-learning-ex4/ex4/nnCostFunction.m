@@ -105,11 +105,7 @@ for(c = 1:m),
   % Step4: Accumulate the gradient
   Delta1 = Delta1 + delta2*a_1';
   Delta2 = Delta2 + delta3*a_2';
-end;
-
-Theta1_grad = Delta1 / m;
-Theta2_grad = Delta2 / m;
-
+end
 %
 % Part 3: Implement regularization with the cost function and gradients.
 %
@@ -118,6 +114,12 @@ Theta2_grad = Delta2 / m;
 %               the regularization separately and then add them to Theta1_grad
 %               and Theta2_grad from Part 2.
 %
+
+Theta1R = [zeros(Theta1M, 1) Theta1R];
+Theta2R = [zeros(Theta2M, 1) Theta2R];
+
+Theta1_grad = Delta1 / m + (lambda/m)*Theta1R;
+Theta2_grad = Delta2 / m + (lambda/m)*Theta2R;
 
 % -------------------------------------------------------------
 
